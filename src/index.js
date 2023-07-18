@@ -12,7 +12,7 @@ class BindDeploymentId {
     const template = this.serverless.service.provider.compiledCloudFormationTemplate
 
     // Find the deployment resource
-    let deploymentId
+    let deploymentId = new Date.now()
     for (const key of Object.keys(template.Resources)) {
       const resource = template.Resources[key]
       if (resource.Type === 'AWS::ApiGateway::Deployment') {
